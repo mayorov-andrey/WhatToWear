@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block title %}Новости{% endblock %}
+{% block main %}
+    {% include "generic/messages.html" %}
+    <h2>Новости</h2>
+    {% if perms.news.add_new %}
+        <p>
+            <a href="{% url 'news_add' %}">Добавить новость</a>
+        </p>
+    {% endif %}
+    {% for object in latest %}
+        <h4><a href="{% url 'news_detail' pk=object.pk %}?page={{ page_obj.number }}">{{ object.title }}</a></h4>
+        <p>{{ object.description }}</p>
+        <p class="posted">{{ object.posted|date:"j.m.Y H:i:s" }}</p>
+        <p class="buttons bottom-indent">
+            {% if perms.news.change_new %}
+                <a href="{% url 'news_edit' pk=object.pk %}?page={{ page_obj.number }}">Изменить</a>
+            {% endif %}
+            {% if perms.news.delete_new %}
+                <a href="{% url 'news_delete' pk=object.pk %}?page={{ page_obj.number }}">Удалить</a>
+            {% endif %}
+        </p>
+    {% endfor %}
+    {% include "generic/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% load bbcode_tags %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block main %}
+    <h2>{{ object.title }}</h2>
+    <div>{{ object.content|bbcode|safe }}</div>
+    <p class="posted">{{ object.posted|date:"j.m.Y H:i:s" }}</p>
+    <p><a href="{% url 'news_index' %}?page={{ pn }}">Назад</a></p>
+{% endblock %}

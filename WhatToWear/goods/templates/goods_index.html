@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% load thumbnail %}
+
+{% block title %}{{ category.name }}{% endblock %}
+{% block main %}
+    {% include "generic/messages.html" %}
+    <h2>{{ category.name }}</h2>
+    {% if perms.goods.add_good %}
+        <p><a href="{% url 'goods_add' pk=category.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">Добавить товар</a></p>
+    {% endif %}
+    <table class="list-table">
+        <tr>
+            <th>Миниатюра</th>
+            <th>
+                <a href="?sort=0&order={% if sort == '0' and order == 'A' %}D{% else %}A{% endif %}">
+                    {% if sort == "0" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;Название
+                </a>
+            </th>
+            <th>Описание</th>
+            <th>
+                <a href="?sort=1&order={% if sort == '1' and order == 'A' %}D{% else %}A{% endif %}">
+                    {% if sort == "1" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;Цена, руб.
+                </a>
+            </th>
+            <th>
+                <a href="?sort=2&order={% if sort == '2' and order == 'A' %}D{% else %}A{% endif %}">
+                    {% if sort == "2" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;Есть в наличии
+                </a>
+            </th>
+            {% if perms.goods.change_good %}
+                <th>&nbsp;</th>
+            {% endif %}
+            {% if perms.goods.delete_good %}
+                <th>&nbsp;</th>
+            {% endif %}
+        </tr>
+        {% for object in object_list %}
+            <tr>
+                <td class="centered"><a href="{% url 'goods_detail' pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}"><img src="{% thumbnail object.image 'base' %}"></a></td>
+                <td><a href="{% url 'goods_detail' pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">{{ object.name }}</a></td>
+                <td>{{ object.description }}</td>
+                <td class="centered">
+                    {% if object.price_acc > 0 %}
+                        <span class="old-price">{{ object.price }}</span><br>
+                        {{ object.price_acc }}
+                    {% else %}{{ object.price }}
+                    {% endif %}
+                </td>
+                <td class="centered">
+                    {% if object.in_stock %}+
+                    {% else %}-
+                    {% endif %}
+                </td>
+                {% if perms.page.change_good %}
+                    <td class="centered"><a href="{% url 'goods_edit' pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">Изменять</a></td>
+                {% endif %}
+                {% if perms.page.delete_good %}
+                    <td class="centered"><a href="{% url 'goods_delete' pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">Удалить</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    {% include "generic/pagination.html" %}
+{% endblock %}

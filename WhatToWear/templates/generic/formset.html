@@ -1,0 +1,36 @@
+{% csrf_token %}
+{{ formset.management_form }}
+<table class="form">
+    <tr>
+        <th></th>
+        {% with form=formset|first %}
+            {% for field in form.visible_fields %}
+                <th>
+                    {{ field.label }}
+                    {% if field.help_text %}
+                        <br>{{ field.help_text }}
+                    {% endif %}
+                </th>
+            {% endfor %}
+        {% endwith %}
+    </tr>
+    {% for form in formset %}
+        <tr>
+            <td>
+                {% for field in form.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+            </td>
+            {% for field in form.visible_fields %}
+                <td>
+                    {% if field.errors.count > 0 %}
+                        <div class="error-list">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                    <div class="control">{{ field }}</div>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

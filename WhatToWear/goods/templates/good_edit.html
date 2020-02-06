@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block title %}Правка товара :: {{ good.name }}{% endblock %}
+{% block main %}
+    <h2>Правка товара</h2>
+    <div class="form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% include 'generic/form.html' %}
+            {% include 'generic/formset.html' %}
+            <div class="submit-button"><input type="submit" value="Изменить"></div>
+        </form>
+    </div>
+    <p><a href="{% url 'goods_index' pk=good.category.pk %}?page={{ pn }}&sort={{ sort }}&order={{ order }}">Назад</a></p>
+{% endblock %}

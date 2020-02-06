@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block title %}Правка новости{% endblock %}
+{% block main %}
+    <h2>Правка новости</h2>
+    <div class="form">
+        <form action="" method="post">
+            {% include "generic/form.html" %}
+            <div class="submit-button">
+                <input type="submit" value="Добавить">
+            </div>
+        </form>
+    </div>
+    <p><a href="{% url 'news_index' %}?page={{ pn }}">Назад</a></p>
+{% endblock %}

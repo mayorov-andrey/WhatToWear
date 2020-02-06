@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% load bbcode_tags %}
+{% block title %}Удаление товара :: {{ object.name }}{% endblock %}
+{% block main %}
+    <h2>Удаление товара</h2>
+    <h4>{{ object.name }}</h4>
+    <p>Категория: {{ object.category.name }}</p>
+    <div>{{ object.content|bbcode|safe }}</div>
+    <p>Цена, руб.: {% if object.price_acc > 0 %}<span class="old-price">
+        {{ object.price }}</span>&nbsp;&nbsp;{{ object.price_acc }}{% else %}
+        {{ object.price }}{% endif %}
+    </p>
+    {% if object.in_stock %}
+        <p>Нет в наличии.</p>
+    {% endif %}
+    {% if object.featured %}
+        <p>Рекомендуемый.</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+    </form>
+    <p><a href="{% url 'goods_index' pk=object.category.pk %}?page={{ pn }}&sort={{ sort }}&order={{ order }}">Назад</a></p>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "login_logout.html" %}
+{% block title %}Выход{% endblock %}
+{% block 11 %}
+    <h2>Выход</h2>
+    <p>Вы успешно выполнили процедуру выхода с сайта.</p>
+    <p><a href="{% url 'login' %}">Войти снова</a></p>
+    <p><a href="{% url 'main' %}">На главную страницу</a></p>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% if paginator.num_pages > 1 %}
+    <div id="pagination">
+        {% if page_obj.has_previous %}
+            <div id="previous-page">
+                <a href="?page={{ page_obj.previous_page_number }}
+                {% if sort and order %}&sort={{ sort }}&order={{ order }}
+                {% endif %}{% if search %}&search={{ search }}{% endif %}{% if tag %}&tag={{ tag }}{% endif %}">&lt;</a>
+            </div>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <div id="next-page">
+                <a href="?page={{ page_obj.next_page_number }}
+                {% if sort and order %}&sort={{ sort }}&order={{ order }}
+                {% endif %}{% if search %}&search={{ search }}{% endif %}{% if tag %}&tag={{ tag }}{% endif %}">&gt;</a>
+            </div>
+        {% endif %}
+        <div id="num-pages">
+            {% for pn in paginator.page_range %}
+                {% if not forloop.first %}
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                {% endif %}
+                {% if page_obj.number != pn %}
+                    <a href="?page={{ pn }}{% if sort and order %}&sort={{ sort }}&order={{ order }}
+                {% endif %}{% if search %}&search={{ search }}{% endif %}{% if tag %}&tag={{ tag }}{% endif %}">
+                {% endif %}
+                {{ pn }}
+                {% if page_obj.number != pn %}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

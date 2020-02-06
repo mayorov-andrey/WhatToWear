@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+{% block title %}Гостевая книга{% endblock %}
+{% block main %}
+    {% include "generic/messages.html" %}
+    <h2>Гостевая книга</h2>
+    <div class="form bottom-indent">
+        <form action="" method="post">
+            {% include "generic/form.html" %}
+            <div class="submit-button"><input type="submit" value="Добавить"></div>
+        </form>
+    </div>
+    {% if object_list.count > 0 %}
+        {% for object in latest %}
+            <table class="guestbook">
+                <tr>
+                    <td class="user">{{ object.user }}</td>
+                    <td class="posted">{{ object.posted|date:"j.m.Y H:i:s" }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="content">{{ object.content }}</td>
+                </tr>
+            </table>
+        {% endfor %}
+    {% endif %}
+    {% include "generic/pagination.html" %}
+{% endblock %}

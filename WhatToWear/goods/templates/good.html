@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% load bbcode_tags %}
+{% load comments %}
+{% block title %}{{ object.name }} :: {{ object.category.name }}
+{% endblock %}
+{% block main %}
+    <h2>{{ object.name }}</h2>
+    <p>Категория: {{ object.category.name }}</p>
+    <div class="good-images">
+        <div><img src="{{ object.image.url }}"></div>
+        {% for goodimage in object.goodimage_set.all %}
+            <div><img src="{{ goodimage.image.url }}"></div>
+        {% endfor %}
+    </div>
+    <div>{{ object.content|bbcode|safe }}</div>
+    <p>Цена, руб.: {% if object.price_acc > 0 %}<span class="old-price">
+        {{ object.price }}</span>&nbsp;{{ object.price_acc }}{% else %}
+        {{ object.price }}{% endif %}</p>
+        {% if object.in_stock %}
+            <p>В наличии.</p>
+        {% else %}
+            <p>Нет наличии.</p>
+        {% endif %}
+    <p><a href="{% url 'goods_index' pk=object.category.pk %}?page={{ pn }}&sort={{ sort }}&order={{ order }}">Назад</a></p>
+    <p>&nbsp;</p>
+    {% render_comment_list for object %}
+    <p>&nbsp;</p>
+    {% get_comment_form for object as form %}
+    <div class="form">
+        <form action="{% comment_form_target %}" method="post">
+            {% include "generic/form.html" %}
+            <input type="hidden" name="next" value="{% url 'goods_detail' pk=object.pk %}?page={{ pn }}&sort={{ sort }}&order={{ order }}">
+            <div class="submit-button">
+                <input type="submit" name="submit" value="Отправить">
+            </div>
+        </form>
+    </div>
+{% endblock %}

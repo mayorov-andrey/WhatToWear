@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block additional_css %}
+    <link type="text/css" href="{% static 'main.css'%}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div id="header">
+        <h1>WhatToWear - отзовы об одежде популярных брендов</h1>
+    </div>
+    <div id="leftmenu">
+        <ul>
+            {% url "main" as page_url %}
+            <li><a href="{{ page_url }}" {% if page_url == current_url %}class="current"{% endif %}>Главная</a></li>
+            {% for object in categories %}
+                {% url 'goods_index' pk=object.pk as page_url %}
+                <li {% if forloop.first %} class="indented"{% endif %}>
+                    <a href="{{ page_url }}"{% if page_url == current_url %}
+                       class="current"{% endif %}>{{ object.name }}</a></li>
+            {% endfor %}
+            {% url "news_index" as page_url %}
+            <li class="indented"><a href="{{ page_url }}"{% if page_url == current_url %}class="current"{% endif %}>Новости</a></li>
+            {% url "blog_index" as page_url %}
+            <li><a href="{{ page_url }}"{% if page_url == current_url %}
+            class="current"{% endif %}>Блог</a></li>
+            {% url "guestbook" as page_url %}
+            <li><a href="{{ page_url }}"{% if page_url == current_url %}class='current'{% endif %}>Гостевая</a></li>
+            {% url "contacts" as page_url %}
+            <li class="indented"><a href="{{ page_url }}"
+            {% if page_url == current_url %} class="current"{% endif %}>Контакты</a>
+            {% url "howtobuy" as page_url %}
+            <li><a href="{{ page_url }}"
+            {% if page_url == current_url %} class="current"{% endif %}>Оплата</a>
+            {% url "about" as page_url %}
+            <li><a href="{{ page_url }}"
+            {% if page_url == current_url %} class="current"{% endif %}>О нас</a></li>
+            {% if user.is_authenticated %}
+                {% url "categories_edit" as page_url %}
+                <li class="indented"><a href="{{ page_url }}"{% if page_url == current_url %}class="current"{% endif %}>Категории</a></li>
+                <li class="indented"><a href="/admin/">Админка</a></li>
+                <li class="indented"><a href="{% url 'logout' %}">Выйти</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="main">
+        {% block main %}
+        {% endblock %}
+    </div>
+    <div id="footer">
+        <p>Андрей Майоров 2020</p>
+    </div>
+{% endblock %}

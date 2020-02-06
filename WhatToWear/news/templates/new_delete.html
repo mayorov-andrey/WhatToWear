@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block additional_js %}
+    <script src="{% static 'jquery.js' %}" type="text/javascript"></script>
+    <script src="{% static 'imagepool.js' %}" type="text/javascript"></script>
+{% endblock %}
+{% load bbcode_tags %}
+{% block title %}Удаление новости :: {% endblock %}
+{% block main %}
+    <h2>Удаление новости</h2>
+    <h4>{{ object.title }}</h4>
+    <div>{{ object.content }}</div>
+    <p class="posted">{{ object.posted|date:"j.m.Y H:i:s" }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+    </form>
+    {% include 'generic/file_lister.html' %}
+    <p><a href="{% url 'news_index' %}?page={{ pn }}">Назад</a></p>
+{% endblock %}

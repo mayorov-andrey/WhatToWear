@@ -1,0 +1,14 @@
+{% if comment.content_type.model == "good" %}
+    - товар: {{ content_object.name }};
+{% else %}
+    - статья блога: {{ content_object.title }};
+{% endif %}
+- страница: http://localhost:8000 {{ content_object.get_absolute_url }};
+- пользователь: {{ comment.user_name }};
+- email: {{ comment.user_email }};
+- содержимое: {{ comment.comment }};
+- дата: {{ comment.submit_date }};
+- IP-адрес: {{ comment.ip_address }}.
+
+Гиперсылка на страницу комментария:
+http://localhost:8000/admin/comments/comment/{{ comment.pk }}/.

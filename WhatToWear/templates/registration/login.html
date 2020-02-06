@@ -1,0 +1,10 @@
+{% extends "login_logout.html" %}
+{% block title %}Вход{% endblock %}
+{% block 11 %}
+    <h2>Вход</h2>
+    <form action="" method="post">
+        {% include "generic/form.html" %}
+        <div class="submit-button"><input type="submit" value="Войти"></div>
+        <input type="hidden" name="text" value="{{ next }}">
+    </form>
+{% endblock %}

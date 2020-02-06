@@ -1,0 +1,224 @@
+@charset "utf-8";
+#header{
+    text-align: center;
+    border-bottom: 1px #cccccc solid;
+}
+#header h1{
+    margin: 20px 0px 20px 0px;
+    letter-spacing: 0.2em;
+}
+#leftmenu{
+    float: left;
+    width: 100px;
+    padding: 10px;
+    min-height: 440px;
+}
+#leftmenu ul{
+    margin: 0px;
+    padding: 0px;
+}
+#leftmenu ul li{
+    font-size: larger;
+    list-style-type: none;
+    margin: 0px 10px 10px 0px;
+}
+#leftmenu ul li a{
+    display: block;
+}
+#leftmenu ul li.indented{
+    margin-top: 20px;
+}
+#leftmenu ul li a:link, #leftmenu ul li a:visited,
+#leftmenu ul li a:active, #leftmenu ul li a:hover{
+    text-decoration: none;
+}
+#leftmenu ul li a:link, #leftmenu ul li a:visited{
+    color: #0000FF;
+    background-color: #FFFFFF;
+}
+#leftmenu ul li a:active, #leftmenu ul li a:hover{
+    color: #FFFFFF;
+    background-color: #000000
+}
+#leftmenu ul li a.current:link, #leftmenu ul li a.current:visited,
+#leftmenu ul li a.current:active, #leftmenu ul li a.current:hover{
+    color: #000000;
+    background-color: #FFFFFF;
+}
+#main{
+    margin-left: 110px;
+    border-left: 1px #cccccc solid;
+    padding: 10px;
+    min-height: 440px;
+}
+#main h2:first-child{
+    margin: 0px 0px 10px 0px;
+}
+#footer{
+    text-align: right;
+    border-top: 1px #cccccc solid;
+    padding-right: 10px;
+}
+#footer p{
+    font-size: smaller;
+    font-style: italic;
+}
+.form{
+    width: 400px;
+    margin: 20px 0px 20px 0px;
+    border-collapse: collapse;
+}
+.bottom-indent{
+    margin-bottom: 50px;
+}
+.guestbook{
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+}
+.guestbook .user{
+    font-weight: bold;
+}
+.guestbook .posted{
+    font-style: italic;
+    text-align: right;
+    width: 200px;
+}
+.guestbook .content{
+    padding-top: 20px;
+}
+.honeypot{
+    display: none;
+}
+#messages-list{
+    background-color: #EEEEEE;
+    padding: 5px;
+}
+#messages-list  .ERROR{
+    color: #FF0000;
+}
+#pagintation{
+    margin-top: 20px;
+}
+#pagintation #previous-page{
+    float: left;
+}
+#pagintation #num-pages{
+    text-align: center;
+}
+#pagintation #next-page{
+    float: right;
+}
+.posted{
+    font-style: italic;
+    text-align: right;
+}
+.buttons{
+    text-align: right;
+}
+#imagepool_output{
+    display: none;
+}
+#imagepool_image_list{
+    margin-top: 60px;
+}
+#imagepool_image_list td{
+    text-align: center;
+    width: 160px;
+    hieght: 120px;
+}
+#imagepool_image_list td.link{
+    font-size: xx-large;
+    width: 20px;
+}
+#imagepool_image_list td img{
+    max-width: 160px;
+    max-hieght: 100px;
+}
+#imagepool_image_list td a:link, #imagepool_image_list td a:visited,
+#imagepool_image_list td a:active, #imagepool_image_list td a:hover{
+    text-decoration: none;
+}
+#imagepool_image_list td a.disabled:link,
+#imagepool_image_list td a.disabled:visited,
+#imagepool_image_list td a.disabled:active,
+#imagepool_image_list td a.disabled:hover{
+    display: none;
+}
+.form th, .form td{
+    padding: 10px;
+    border: 1px solid #cccccc;
+}
+.form th:first-child, .form td:first-child{
+    display: none;
+}
+.list-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.list-table td, list-table th{
+    border: 1px #666666 solid;
+    padding: 5px;
+}
+.list-table td.centered{
+    text-align: center;
+}
+.old-price{
+    color: #999999;
+    text-decoration: line-through;
+}
+.good-images{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 50px;
+}
+.good-images div{
+    max-width: 300px;
+    height: 200px;
+    float: left;
+}
+.good-images div img{
+    max-width: 300px;
+    height: 200px;
+}
+.comment{
+    border: 1px solid #cccccc;
+    margin: 5px 0px 5px 0px;
+}
+.comment .div{
+    padding: 4px;
+}
+.comment div{
+    padding: 4px;
+}
+.comment .user{
+    background-color: #eeeeee;
+    font-weight: bold;
+}
+.comment .date{
+    background-color: #eeeeee;
+    font-style: italic;
+    text-align: right;
+}
+.comment-removed{
+    font-weight: bold;
+    font-style: italic;
+}
+.blog-article{
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    border: 1px solid #cccccc;
+}
+.blog-article h4{
+    margin-top: 0px;
+}
+.username{
+    font-size: smaller;
+    font-weight: bold;
+}
+.tags{
+    text-align: right;
+}
+.search-form{
+    float: right;
+}

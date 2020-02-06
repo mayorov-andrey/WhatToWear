@@ -1,0 +1,31 @@
+@charset "utf-8";
+body{
+    color: #000000;
+    background-color: #FFFFFF
+    margin: 0px;
+    padding: 0px;
+}
+.form-field{
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+}
+.form-filed .help{
+    font-size: smaller;
+    font-style: italic;
+}
+.form-field .label{
+    margin-bottom: 2px;
+}
+.form-field .control input[type=name],
+.form-field .control input[type=password],
+.form-field .control input[type=number],
+.form-field .control input[type=file],
+.form-field .control textarea, .form-field .control select{
+    width: 100%;
+}
+.submit-button{
+    width: 100%;
+}
+.error-list .error-description{
+    color: #FF0000;
+}
