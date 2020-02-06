@@ -4,12 +4,12 @@
     border-bottom: 1px #cccccc solid;
 }
 #header h1{
-    margin: 20px 0px 20px 0px;
-    letter-spacing: 0.2em;
+    margin: 20px 0px 20px 10px;
+    text-align: left;
 }
 #leftmenu{
     float: left;
-    width: 100px;
+    width: 110px;
     padding: 10px;
     min-height: 440px;
 }

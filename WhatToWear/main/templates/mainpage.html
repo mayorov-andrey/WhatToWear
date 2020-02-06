@@ -2,17 +2,9 @@
 {% load thumbnail %}
 {% block title %}Главная страница{% endblock %}
 {% block main %}
-    <h2>Все для уборки</h2>
+    <h2>Найди одежду, которая подойдет тебе!</h2>
     <p>Сервис &quot;WhatToWear&quot; поможет вам выбрать качественную и стильную одежду.</p>
-    <h3>Новости</h3>
-    {% for object in news %}
-        <h4>
-            <a href="{% url 'news_detail' pk=object.pk %}">{{ object.title }}</a>
-        </h4>
-        <p>{{ object.description }}</p>
-        <p class="posted">{{ object.posted|date:"j.m.Y H:i:s" }}</p>
-    {% endfor %}
-    <h3>Рекомендуемые товары</h3>
+    <h3>Свежие отзывы</h3>
     <table class="list-table">
         {% for object in goods %}
             <tr>
@@ -31,4 +23,12 @@
             </tr>
         {% endfor %}
     </table>
+    <h3>Новости</h3>
+        {% for object in news %}
+            <h4>
+                <a href="{% url 'news_detail' pk=object.pk %}">{{ object.title }}</a>
+            </h4>
+            <p>{{ object.description }}</p>
+            <p class="posted">{{ object.posted|date:"j.m.Y H:i:s" }}</p>
+        {% endfor %}
 {% endblock %}
