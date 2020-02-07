@@ -27,7 +27,6 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(), name="login"),
     path('logout/', views.LogoutView.as_view(), name="logout"),
     path('', include('main.urls')),
-    path('guestbook/', include('guestbook.urls')),
     path('news/', include('news.urls')),
     path('imagepool/', include('imagepool.urls')),
     path('categories/', include('categories.urls')),

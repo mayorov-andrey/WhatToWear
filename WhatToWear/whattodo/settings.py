@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'main',
-    'guestbook',
     'news',
     'precise_bbcode',
     'imagepool',
