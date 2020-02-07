@@ -24,7 +24,7 @@
             </th>
             <th>
                 <a href="?sort=2&order={% if sort == '2' and order == 'A' %}D{% else %}A{% endif %}">
-                    {% if sort == "2" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;Есть в наличии
+                    {% if sort == "2" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;В продаже
                 </a>
             </th>
             {% if perms.goods.change_good %}

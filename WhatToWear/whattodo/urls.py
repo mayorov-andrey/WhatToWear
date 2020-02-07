@@ -18,9 +18,8 @@ from django.urls import path, include
 from django.contrib.auth import views
 from django.conf import settings
 from django.conf.urls.static import static
-from about.views import AboutView
 from contacts.views import ContactsView
-from howtobuy.views import HowToBuyView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,10 +31,7 @@ urlpatterns = [
     path('categories/', include('categories.urls')),
     path('goods/', include('goods.urls')),
     path('comments/', include('django_comments.urls')),
-    path('blog/', include('blog.urls')),
-    path('about/', AboutView.as_view(), name="about"),
     path('contacts/', ContactsView.as_view(), name="contacts"),
-    path('howtobuy/', HowToBuyView.as_view(), name="howtobuy"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

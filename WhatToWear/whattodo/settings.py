@@ -44,11 +44,8 @@ INSTALLED_APPS = [
     'goods',
     'easy_thumbnails',
     'django_comments',
-    'blog',
     'taggit',
     'contacts',
-    'about',
-    'howtobuy',
 ]
 
 MIDDLEWARE = [

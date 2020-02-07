@@ -20,13 +20,12 @@
 #leftmenu ul li{
     font-size: larger;
     list-style-type: none;
-    margin: 0px 10px 10px 0px;
 }
 #leftmenu ul li a{
     display: block;
 }
 #leftmenu ul li.indented{
-    margin-top: 20px;
+    margin-top: 15px;
 }
 #leftmenu ul li a:link, #leftmenu ul li a:visited,
 #leftmenu ul li a:active, #leftmenu ul li a:hover{

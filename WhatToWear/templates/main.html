@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <div id="header">
-        <h1>WhatToWear - отзовы об одежде популярных брендов</h1>
+        <h1>WhatToWear - отзывы об одежде популярных брендов</h1>
     </div>
     <div id="leftmenu">
         <ul>
@@ -19,13 +19,9 @@
             {% endfor %}
             {% url "news_index" as page_url %}
             <li class="indented"><a href="{{ page_url }}"{% if page_url == current_url %}class="current"{% endif %}>Новости</a></li>
-            {% url "blog_index" as page_url %}
-            <li><a href="{{ page_url }}"{% if page_url == current_url %}
-            class="current"{% endif %}>Блог</a></li>
             {% url "contacts" as page_url %}
             <li class="indented"><a href="{{ page_url }}"
             {% if page_url == current_url %} class="current"{% endif %}>Контакты</a>
-            {% url "howtobuy" as page_url %}
             {% if user.is_authenticated %}
                 {% url "categories_edit" as page_url %}
                 <li class="indented"><a href="{{ page_url }}"{% if page_url == current_url %}class="current"{% endif %}>Категории</a></li>
