@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'main',
     'news',
-    'precise_bbcode',
     'imagepool',
     'categories',
     'goods',

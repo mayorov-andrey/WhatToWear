@@ -1,5 +1,4 @@
 {% extends 'main.html' %}
-{% load bbcode_tags %}
 {% load comments %}
 {% block title %}{{ object.name }} :: {{ object.category.name }}
 {% endblock %}
@@ -12,7 +11,7 @@
             <div><img src="{{ goodimage.image.url }}"></div>
         {% endfor %}
     </div>
-    <div>{{ object.content|bbcode|safe }}</div>
+    <div>{{ object.content }}</div>
     <p>Цена, руб.: {% if object.price_acc > 0 %}<span class="old-price">
         {{ object.price }}</span>&nbsp;{{ object.price_acc }}{% else %}
         {{ object.price }}{% endif %}</p>
